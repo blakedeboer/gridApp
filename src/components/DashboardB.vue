@@ -1,23 +1,16 @@
 <template>
-  <div class="hello">
+  <div class="dashboard-b">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <navigation></navigation>
   </div>
 </template>
 
 <script>
-import Navigation from './Navigation.vue'
-
 export default {
-  name: 'hello',
+  name: 'dashboardB',
   data () {
     return {
-      msg: 'Welcome to the App'
+      msg: 'Welcome to Dashboard B'
     }
-  },
-  components: {
-    navigation: Navigation
   }
 }
 </script>

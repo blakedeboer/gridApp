@@ -1,23 +1,16 @@
 <template>
-  <div class="hello">
+  <div class="grid-two">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <navigation></navigation>
   </div>
 </template>
 
 <script>
-import Navigation from './Navigation.vue'
-
 export default {
-  name: 'hello',
+  name: 'gridTwo',
   data () {
     return {
-      msg: 'Welcome to the App'
+      msg: 'Welcome to Grid Two'
     }
-  },
-  components: {
-    navigation: Navigation
   }
 }
 </script>
@@ -42,3 +35,4 @@ a {
   color: #42b983;
 }
 </style>
+
