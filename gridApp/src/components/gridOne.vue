@@ -1,7 +1,7 @@
 <template>
   <div class="grid-one">
     <h1>{{ msg }}</h1>
-    <button v-on:click="getQuote()">GET QUOTE</button>
+    <p>{{ response }}</p>
   </div>
 </template>
 
@@ -10,16 +10,15 @@
 	  name: 'gridOne',
 	  data () {
 	    return {
-	      msg: 'Welcome to Grid One'
+	      msg: 'Welcome to Grid One',
+	      response: 'response goes here'
 	    }
 	  },
-	  methods: {
-	  	getQuote() {
-	  		this.$http.get('http://localhost:3000/get-quote')
-	  			.then(response => console.log(response))
-	  			.catch(error => console.log(error))
-	 		}
-	 	}
+	  mounted: function () {
+	  	this.$http.get('http://localhost:3000/getquote', { withCredentials: true })
+	  			.then(resp => this.response = resp.data)
+	  			.catch(error => console.log("HERE IS THE ERROR", error))
+	  }
 	}
 </script>
 
