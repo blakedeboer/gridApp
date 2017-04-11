@@ -15,11 +15,11 @@
 	  },
 	  methods: {
 	  	getQuote() {
-	  		this.$http.get('http://localhost:3000/get-quote', (data) => {
-	  			console.log(data)
-	  		}).error((err) => { console.log("ERRRORRRR", err)})
-	  	}
-	  }
+	  		this.$http.get('http://localhost:3000/get-quote')
+	  			.then(response => console.log(response))
+	  			.catch(error => console.log(error))
+	 		}
+	 	}
 	}
 </script>
 

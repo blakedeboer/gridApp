@@ -3,14 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueResource from 'vue-resource'
+import axios from 'axios'
 
-Vue.use(VueResource)
-
+Vue.prototype.$http = axios
 Vue.config.productionTip = false
-
-Vue.http.options.root = '/root';
-Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
 
 /* eslint-disable no-new */
 new Vue({
@@ -18,10 +14,10 @@ new Vue({
   router,
   template: '<App/>',
   components: { App },
-  http: {
-  	root: '/root',
-  	headers: {
-  		Authorization: 'Basic YXBpOnBhc3N3b3Jk'
-  	}
-  }
+  randomProp: "very rando"
+  // mounted () {
+  // 	console.log("axios:", axios)
+  // 	axios.get('/quotes').then(response => console.log(response))
+  // }
+  
 })
