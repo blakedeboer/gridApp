@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-a">
-    <h1>{{ msg }}</h1>
+    <h1>{{ date }}</h1>
     <gridOne></gridOne>
     <gridTwo></gridTwo>
   </div>
@@ -17,6 +17,7 @@
 	      msg: 'Welcome to Dashboard A'
 	    }
 	  },
+	 	props: ['date'],
 	  components: {
 	  	gridOne: GridOne,
 	  	gridTwo: GridTwo

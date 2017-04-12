@@ -14,6 +14,8 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
 
+var windowmanager = require('windowmanager')
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -77,6 +79,10 @@ devMiddleware.waitUntilValid(() => {
   // when env is testing, don't need open it
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
     opn(uri)
+    // windowmanager.start({
+    //   endpoint: uri,
+    //   config: uri + "/app.json"
+    // })
   }
   _resolve()
 })

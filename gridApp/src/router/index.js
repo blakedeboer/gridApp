@@ -6,6 +6,13 @@ import DashboardB from '@/components/DashboardB'
 
 Vue.use(Router)
 
+function dynamicFunc (route) {
+  console.log("ROUTE", route);
+  return {
+    date: route.params.date
+  }
+}
+
 export default new Router({
 	mode: 'history',
   routes: [
@@ -16,7 +23,8 @@ export default new Router({
     }, {
       path: '/dashboardA',
     	name: 'dashboardA',
-    	component: DashboardA
+    	component: DashboardA, 
+      props: dynamicFunc
     }, {
     	path: '/dashboardB',
     	name: 'dashboardB',

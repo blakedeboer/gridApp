@@ -1,8 +1,11 @@
 <template>
   <div class="navigation">
     <h1>{{ msg }}</h1>
-    <router-link to="/dashboardA">Dashboard A</router-link>
-    <router-link to="/dashboardB">Dashboard B</router-link>    
+    <router-link :to="{ name: 'dashboardA', params: { date: 235 }}">Dashboard A</router-link>
+    <router-link to="/dashboardB">Dashboard B</router-link>   
+    <select v-model="selectedDate">
+      <option v-for="option in options" v-bind:value="option.value">{{ option. text }}</option>
+    </select> 
   </div>
 </template>
 
@@ -11,7 +14,13 @@ export default {
   name: 'navigation',
   data () {
     return {
-      msg: 'Welcome to the Navigation'
+      msg: 'Welcome to the Navigation',
+      selectedDate: '',
+      options: [
+        { text: 'April 10, 2017', value: '04102017'},
+        { text: 'April 11, 2017', value: '04112017'}, 
+        { text: 'April 12, 2017', value: '04122017'}
+      ]
     }
   }
 }
@@ -37,3 +46,5 @@ a {
   color: #42b983;
 }
 </style>
+
+n #7-Tue 7-10pm, 5/16 to 6/13

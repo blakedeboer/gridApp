@@ -1,0 +1,22 @@
+{
+    "devtools_port": 9090,
+    "startup_app": {
+        "name": "gridApp",
+        "url": "http://localhost:8080/",
+        "uuid": "gridAppID",
+        "autoShow": true,
+        "defaultTop": 100,
+        "defaultLeft": 100,
+        "defaultWidth": 800,
+        "defaultHeight": 600
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "stable"
+    },
+    "shortcut": {
+        "company": "Eikos",
+        "description": "basic app with Vue",
+        "name": "eikos vue demo"
+    }
+}
