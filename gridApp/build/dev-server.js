@@ -60,13 +60,15 @@ app.use(devMiddleware)
 
 // enable hot-reload and state-preserving
 // compilation error display
-app.use(hotMiddleware)
+//app.use(hotMiddleware)
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
 var uri = 'http://localhost:' + port
+
+app.use('/', express.static(windowmanager.distPath, { index: false }));
 
 var _resolve
 var readyPromise = new Promise(resolve => {
@@ -78,11 +80,7 @@ devMiddleware.waitUntilValid(() => {
   console.log('> Listening at ' + uri + '\n')
   // when env is testing, don't need open it
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-    opn(uri)
-    // windowmanager.start({
-    //   endpoint: uri,
-    //   config: uri + "/app.json"
-    // })
+    //opn(uri)
   }
   _resolve()
 })
