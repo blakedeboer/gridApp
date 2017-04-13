@@ -1,23 +1,16 @@
 <template>
-  <div class="hello">
+  <div class="dashboard-default">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <navigation></navigation>
   </div>
 </template>
 
 <script>
-import Navigation from './Navigation.vue'
-
 export default {
-  name: 'hello',
+  name: 'DashboardDefault',
   data () {
     return {
-      msg: 'Welcome to the App'
+      msg: 'Welcome to dashboard placeholder'
     }
-  },
-  components: {
-    navigation: Navigation
   }
 }
 </script>

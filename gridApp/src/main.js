@@ -13,8 +13,7 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App },
-  randomProp: "very rando"
+  components: { App }
   // mounted () {
   // 	console.log("axios:", axios)
   // 	axios.get('/quotes').then(response => console.log(response))

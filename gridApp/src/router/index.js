@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import DashboardDefault from '@/components/DashboardDefault'
 import DashboardA from '@/components/DashboardA'
 import DashboardB from '@/components/DashboardB'
 
@@ -18,8 +18,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'DashboardDefault',
+      component: DashboardDefault
     }, {
       path: '/dashboardA',
     	name: 'dashboardA',
