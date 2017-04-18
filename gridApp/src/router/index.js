@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import DashboardDefault from '@/components/DashboardDefault'
-import DashboardA from '@/components/DashboardA'
-import DashboardB from '@/components/DashboardB'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
 
 function dynamicFunc (route) {
-  console.log("ROUTE", route);
   return {
+    date: route.params.date
+  }
+}
+
+function dynamicDashboardRoute (route) {
+  return {
+    id: route.params.id,
+    name: route.params.name,
     date: route.params.date
   }
 }
@@ -21,14 +27,10 @@ export default new Router({
       name: 'DashboardDefault',
       component: DashboardDefault
     }, {
-      path: '/dashboardA',
-    	name: 'dashboardA',
-    	component: DashboardA, 
-      props: dynamicFunc
-    }, {
-    	path: '/dashboardB',
-    	name: 'dashboardB',
-    	component: DashboardB
+      path: '/dashboard/:id/:name/:date',
+      name: 'dashboard',
+      component: Dashboard,
+      props: dynamicDashboardRoute
     }
   ]
 })

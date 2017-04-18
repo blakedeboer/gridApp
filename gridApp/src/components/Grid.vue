@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <h1>Welcome to Grid {{ name }}</h1>
+    <h1>Welcome to {{ name }}</h1>
     <p>Data: {{ response }}</p>
   </div>
 </template>
@@ -13,10 +13,15 @@
 	      response: 'response goes here'
 	    }
 	  },
-	  props: ['name'],
+	  props: ['name', 'id'],
 	  mounted: function () {
-	  	console.log("MOUNTED", this.name)
-	  	const path = 'http://localhost:3000/getDataForGrid' + this.name;
+	  	console.log("MOUNTED", this.id)
+	  	//*****TO DO - REFACTOR IN DASHBOARD SO GRID ISN"T MOUNTED UNTIL ID's ARE DEFINED
+	  	if (this.id == undefined) {
+	  		return
+	  	}
+
+	  	const path = 'http://localhost:3000/getGridData/' + this.id;
 	  	console.log("PATH", path)
 	  	this.$http.get(path, { withCredentials: true })
 			.then(resp => this.response = resp.data)
