@@ -1,6 +1,12 @@
 var express = require('express')
 var app = express()
 
+const dates = [
+	{ text: 'April 10, 2017', value: '1'},
+	{ text: 'April 11, 2017', value: '2'},
+	{ text: 'April 12, 2017', value: '3'}
+]
+
 const dashboards = [
 	{
 		id: 0,
@@ -13,7 +19,7 @@ const dashboards = [
 	}, {
 		id: 2,
 		name: 'Dashboard C',
-		grids: [1, 3, 5]
+		grids: [1, 3, 5, 2, 4]
 	}
 ]
 
@@ -55,6 +61,9 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/getDates', function (req, res) {
+  res.send(dates)
+})
 
 app.get('/getDashboardNames', function (req, res) {
   res.send(dashboards.map(db => { 
@@ -77,6 +86,8 @@ app.get('/getGridData/:id', function (req, res) {
 
   res.send(grid.data)
 })
+
+
 
 
 app.listen(3000, function () {
