@@ -55,6 +55,22 @@ const grids = [
 	},
 ]
 
+function generateRandomData (dataLength, min, max) {
+	function getRandomInt(min, max) {
+	  min = Math.ceil(min);
+	  max = Math.floor(max);
+	  return Math.floor(Math.random() * (max - min)) + min;
+	}
+
+	const data = new Array(dataLength)
+
+	for (let i = 0; i < data.length; i++) {
+		data[i] = getRandomInt(min, max)
+	}
+
+	return data
+}
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:8080");
   res.header("Access-Control-Allow-Credentials", "true");
@@ -84,7 +100,9 @@ app.get('/getGridData/:id', function (req, res) {
 	const id = parseInt(req.params.id, 10);
 	const grid = grids.find(grid => grid.id === id );
 
-  res.send(grid.data)
+	data = generateRandomData(6, 1, 60)
+	console.log(data)
+  res.send(data)
 })
 
 
